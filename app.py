@@ -1,5 +1,5 @@
 st.markdown(
-    """
+    
     <style>
     .time-section {
         background-color: #ffffff;
