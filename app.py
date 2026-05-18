@@ -91,29 +91,21 @@ start_day = st.date_input("起始日期", value=date.today())
 
 days = [start_day + timedelta(days=i) for i in range(5)]
 
-# 💡 1. 確保 members 是一個標準的 Python dict 列表，排除 sqlite3.Row 或特殊物件的干擾
 clean_members = []
 for m in members:
     if m is not None:
-        # 如果 m 本身就是 dict，轉成標準 dict；如果是 sqlite3.Row，dict(m) 可以完美轉換
         clean_members.append(dict(m))
 
-# 💡 2. 在 selectbox 中使用轉換後的 clean_members
 if clean_members:
     selected_member = st.selectbox(
         "選擇填寫成員",
         clean_members,
         format_func=lambda x: x.get("nickname") or x.get("name") or "未命名成員",
+        key="unique_member_selectbox"  # 💡 就是多了這一行，幫選單辦身分證
     )
 else:
     st.warning("目前沒有成員資料。")
     selected_member = None
-
-selected_member = st.selectbox(
-    "選擇填寫成員",
-    members,
-    format_func=lambda x: x["nickname"] or x["name"],
-)
 
 
 
