@@ -1,8 +1,9 @@
+from pathlib import Path
 import sqlite3
-from contextlib import contextmanager
 
-DB_NAME = "data/group_collab.db"
-
+# 💡 自動獲取目前 database.py 所在的絕對路徑，並確保資料庫建在同一個資料夾內
+CURRENT_DIR = Path(__file__).parent.resolve()
+DB_NAME = str(CURRENT_DIR / "project.db")
 
 @contextmanager
 def get_conn():
