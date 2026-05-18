@@ -1,3 +1,8 @@
+from datetime import date, timedelta
+import streamlit as st
+from database import init_db
+from services import create_room, get_room, add_member, get_members, save_availability, get_availability, add_norm, get_norms
+from utils import half_hour_slots
 st.markdown(
     """
     <style>
@@ -26,11 +31,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-from datetime import date, timedelta
-import streamlit as st
-from database import init_db
-from services import create_room, get_room, add_member, get_members, save_availability, get_availability, add_norm, get_norms
-from utils import half_hour_slots
 
 st.set_page_config(
     page_title="小組協作平台",
