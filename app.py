@@ -1,5 +1,5 @@
 st.markdown(
-    
+    """
     <style>
     .time-section {
         background-color: #ffffff;
@@ -17,6 +17,15 @@ st.markdown(
     }
 
     .period-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #4b5563;
+        margin-top: 5px;
+    } /* 💡 補上大括號與樣式 */
+    </style>
+    """, /* 💡 補上三引號、逗號 */
+    unsafe_allow_html=True # 💡 補上這個參數
+) # 💡 補上小括號
 from datetime import date, timedelta
 import streamlit as st
 from database import init_db
