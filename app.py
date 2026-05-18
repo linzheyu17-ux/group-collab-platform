@@ -1,3 +1,22 @@
+st.markdown(
+    """
+    <style>
+    .time-section {
+        background-color: #ffffff;
+        padding: 1rem;
+        border-radius: 16px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .day-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #1f2937;
+    }
+
+    .period-title {
 from datetime import date, timedelta
 import streamlit as st
 from database import init_db
